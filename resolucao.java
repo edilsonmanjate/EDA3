@@ -1,20 +1,20 @@
-import trabalho3.FilaCheiaException;
-import trabalho3.FilaVaziaException;
-import trabalho3.TADFila;
+import trabalho3.PilhaCheiaException;
+import trabalho3.PilhaVaziaException;
+import trabalho3.TADPilha;
 
 public class resolucao {
 
-    public static void main(String[] args) throws FilaVaziaException, FilaCheiaException {
-        TADFila<Integer> fila = new TADFila<>(5);
+    public static void main(String[] args) throws PilhaCheiaException, PilhaVaziaException {
+        TADPilha<Integer> fila = new TADPilha<>(5);
 
         int [] dados = {1,2,3,4,5};
 
         for (int i=0; i < dados.length; i++)
             try
             {
-                fila.enqueue(dados[i]);
+                fila.push(dados[i]);
             }
-            catch(FilaCheiaException ex)
+            catch(PilhaCheiaException ex)
             {
                 System.out.println(ex.getMessage());
             }
@@ -44,11 +44,12 @@ public class resolucao {
         //System.out.println(posicaoTopoFila(fila));
 
         //exercicio9
-        //System.out.println(posicaoFundoFila(fila));
+        System.out.println(posicaoFundoFila(fila));
+
 
     }
 
-    public static boolean comparaPilha(TADFila<Integer> fila1,TADFila<Integer> fila2)
+    public static boolean comparaPilha(TADPilha<Integer> fila1,TADPilha<Integer> fila2)
     {
         boolean iguas = false;
 
@@ -58,16 +59,16 @@ public class resolucao {
     }
 
 
-    public static int posicaoFundoFila(TADFila<Integer> fila){
+    public static int posicaoFundoFila(TADPilha<Integer> pilha) throws PilhaVaziaException{
         int nElementos = 0;
         int elemento = 0;
 
-            while (!fila.isEmpty()) 
+            while (!pilha.isEmpty()) 
                 try {
-                    elemento = fila.dequeue();
+                    elemento = pilha.pop();
                     
                     nElementos++;
-                } catch (FilaVaziaException e) {
+                } catch (PilhaVaziaException e) {
                     System.out.println(e.getMessage());
                 }
             
@@ -76,7 +77,8 @@ public class resolucao {
             return nElementos;
     }
 
-    public static int posicaoTopoFila(TADFila<Integer> fila){
+
+    public static int posicaoTopoFila(TADPilha<Integer> fila){
         int posicao = 0;
         
         if(!fila.isEmpty()) {
@@ -86,37 +88,37 @@ public class resolucao {
         return posicao;
     }
 
-    public static void removeElemento(TADFila<Integer> fila,int elementoARemover) throws FilaVaziaException, FilaCheiaException{
+    public static void removeElemento(TADPilha<Integer> pilha,int elementoARemover) throws PilhaVaziaException, PilhaCheiaException{
         int elemento = 0;
-        TADFila<Integer> filaAux = new TADFila<Integer>(fila.size());
-        while (!fila.isEmpty()) {
+        TADPilha<Integer> filaAux = new TADPilha<Integer>(pilha.size());
+        while (!pilha.isEmpty()) {
            try {
-            elemento = fila.dequeue();
+            elemento = pilha.pop();
             
-           } catch (FilaVaziaException e) {
+           } catch (PilhaVaziaException e) {
                 System.out.println(e.getMessage());
            }
 
             if (elemento!=elementoARemover)
                 try {
-                    filaAux.enqueue(elemento);
-                } catch (FilaCheiaException e) {
+                    filaAux.push(elemento);
+                } catch (PilhaCheiaException e) {
                     System.out.println(e.getMessage());
                 }
         }
 
         while (!filaAux.isEmpty()) {
             try {
-                fila.enqueue(filaAux.dequeue());
-            } catch (FilaCheiaException e) {
+                pilha.push(filaAux.pop());
+            } catch (PilhaCheiaException e) {
                 System.out.println(e.getMessage());
             }
             
         }
-        System.out.println("Total de elementos: "+contaElementos(fila));
+        System.out.println("Total de elementos: "+contaElementos(pilha));
     }
 
-    public static String topoFundoFila(TADFila<Integer> fila){
+    public static String topoFundoFila(TADPilha<Integer> fila){
         int topo = 0;
         int fundo = 0;
 
@@ -126,28 +128,28 @@ public class resolucao {
             try {
                 //primeira vez
                 if(fila.size()==sizeAux)
-                    topo = fila.dequeue();
+                    topo = fila.pop();
                 
-                fundo = fila.dequeue(); 
+                fundo = fila.pop(); 
 
-            } catch (FilaVaziaException e) {
+            } catch (PilhaVaziaException e) {
                 System.out.println(e.getMessage());
             }
         }
         return "Topo: "+topo+", Fundo: "+fundo;
     }
 
-    public static boolean elementoExiste(TADFila<Integer> fila,int procurado) throws FilaVaziaException{
+    public static boolean elementoExiste(TADPilha<Integer> fila,int procurado) throws PilhaVaziaException{
         boolean existe = false;
         int elemento =0;
 
         while (!fila.isEmpty()) {
             try {
-                elemento = fila.dequeue();
+                elemento = fila.pop();
                 if (elemento==procurado)
                     existe =true;
 
-            } catch (FilaVaziaException e) {
+            } catch (PilhaVaziaException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -155,41 +157,41 @@ public class resolucao {
         return existe;
     }
 
-    public static int contaElementos(TADFila<Integer> fila) {
+    public static int contaElementos(TADPilha<Integer> fila) {
         int nElementos = 0;
         int elemento = 0;
 
             while (!fila.isEmpty()) 
                 try {
-                    elemento = fila.dequeue();
+                    elemento = fila.pop();
                     System.out.println((nElementos+1)+"º: "+elemento);
                     nElementos++;
-                } catch (FilaVaziaException e) {
+                } catch (PilhaVaziaException e) {
                     System.out.println(e.getMessage());
                 }
 
             return nElementos;
     }
     
-    public static void ordemReversa(TADFila<Integer> fila) {
+    public static void ordemReversa(TADPilha<Integer> fila) {
         System.out.println("Fila em ordem reversa: ");
 
         while (!fila.isEmpty()) {
             try {
-                System.out.print(fila.dequeue() + " ");
-            } catch (FilaVaziaException e) {
+                System.out.print(fila.pop() + " ");
+            } catch (PilhaVaziaException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    public static String menorMaiorElemento(TADFila<Integer> fila) {
+    public static String menorMaiorElemento(TADPilha<Integer> fila) {
         int maior = 0;
         int menor = Integer.MAX_VALUE;  
         
         try {
             while (!fila.isEmpty()) {
-                int elemento = fila.dequeue();
+                int elemento = fila.pop();
 
                 if (elemento > maior)
                     maior = elemento;

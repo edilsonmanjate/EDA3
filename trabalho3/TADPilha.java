@@ -48,5 +48,9 @@ public class TADPilha <T> { // Declaração da classe genérica TADPilha
 	public T top() { // Retorna o elemento do topo da pilha sem removê-lo
 		return (T) data[nElements - 1]; // Retorna o elemento do topo
 	}
+
+	public int size() { // Retorna o número de elementos na pilha
+		return nElements; // Retorna o número de elementos
+	}
 	
 }
