@@ -2,9 +2,17 @@ import trabalho3.PilhaCheiaException;
 import trabalho3.PilhaVaziaException;
 import trabalho3.TADPilha;
 
-public class resolucao {
+/*
+ * Author: Edilson Manjate
+ * Date: 2024/09/18
+ * Description: Resolução dos exercícios do trabalho 3 de Estrutura de Dados e Algoritmos da USTM
+ * Docente: Engº. Godinho Quissico
+ */
+
+public class pilha {
 
     public static void main(String[] args) throws PilhaCheiaException, PilhaVaziaException {
+        // <Contrutores>
         TADPilha<Integer> pilha = new TADPilha<>(5);
 
         int [] dados = {1,2,3,4,5};
@@ -31,6 +39,10 @@ public class resolucao {
             {
                 System.out.println(ex.getMessage());
             }
+        
+        // </Construtores>
+
+        // <Testes>
 
         //exercicio1
         //ordemReversa(fila);
@@ -90,8 +102,10 @@ public class resolucao {
         //         System.out.println(e.getMessage());
         //     }
 
-
+        // </Testes>
     }
+
+    // <Resolução>
 
     public static TADPilha<Integer> verificaExistenciaNumeroPrimo(TADPilha<Integer> pilha){
         TADPilha<Integer> pilhaAux = new TADPilha<>(pilha.size());
@@ -339,4 +353,5 @@ public class resolucao {
         return "Menor:"+String.valueOf(menor)+", Maior:"+String.valueOf(maior);
     }
 
+    // </Resolução>
 }
