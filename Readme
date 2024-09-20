@@ -1,0 +1,30 @@
+# Trabalho 3 de EDA
+
+## Descrição
+Este projeto é parte da Cadeira de Estruturas de Dados e Algoritmos (EDA) da USTM. O objetivo deste trabalho é implementar e analisar diferentes estruturas de dados e algoritmos.
+
+## Estruturas de Dados e Algoritmos
+- Árvore Binária de Busca
+- Pilha
+- Fila
+- Algoritmos de Ordenação (Bubble Sort, Quick Sort, Merge Sort)
+
+## Requisitos
+- Linguagem de Programação: Java
+
+## Como Executar
+1. Clone o repositório:
+    ```
+    git clone https://github.com/edilsonmanjate/EDA3.git
+    ```
+2. Navegue até o diretório do projeto:
+    ```
+    cd EDA3
+    ```
+3. Execute o programa
+
+## Autores
+- Edilson Manjate
+
+## Licença
+Gratiuto
