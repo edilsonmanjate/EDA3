@@ -1,4 +1,4 @@
-package trabalho3;
+package EDA3;
 
 public class PilhaCheiaException extends Exception {
 

@@ -1,6 +1,6 @@
-import trabalho3.PilhaCheiaException;
-import trabalho3.PilhaVaziaException;
-import trabalho3.TADPilha;
+import EDA3.PilhaCheiaException;
+import EDA3.PilhaVaziaException;
+import EDA3.TADPilha;
 
 /*
  * Author: Edilson Manjate

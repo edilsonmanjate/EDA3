@@ -1,7 +1,7 @@
 /**
  * 
  */
-package trabalho3; // Declaração do pacote
+package EDA3; // Declaração do pacote
 
 /**
  * Data: 05/09/2024

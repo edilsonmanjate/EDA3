@@ -1,12 +1,6 @@
-import trabalho3.FilaCheiaException;
-import trabalho3.FilaVaziaException;
-import trabalho3.TADFila;
-/*
- * Author: Edilson Manjate
- * Date: 2024/09/18
- * Description: Resolução dos exercícios do trabalho 3 de Estrutura de Dados e Algoritmos da USTM
- * Docente: Engº. Godinho Quissico
- */
+import EDA3.FilaCheiaException;
+import EDA3.FilaVaziaException;
+import EDA3.TADFila;
 
 public class fila {
     public static void main(String[] args) throws FilaCheiaException {
